@@ -16,14 +16,15 @@ with st.sidebar:
     st.info('This application is originally developed from LipNet deep learning model.')
 
 st.header('Lip Reader')
-options = os.listdir(os.path.join('..', 'data', 's1'))
+options = os.listdir('data/s1')
 selected_video = st.selectbox('Choose a video and the deep learning model will lip read what the man says and output the result', options)
 
 col1, col2 = st.columns(2)
 
 if options:
     with col1:
-        file_path = os.path.join('..', 'data', 's1', selected_video)
+        # file_path = os.path.join('..', 'data', 's1', selected_video) 
+        file_path = f'data/s1/{selected_video}'
         os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
         video = open('test_video.mp4', 'rb')
         video_bytes = video.read()
