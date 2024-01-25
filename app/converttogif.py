@@ -3,8 +3,8 @@ from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 import moviepy.editor as mp
 
 def convert_to_gif():
-    input_video_path = 'test_video.mp4'
-    output_gif_path = 'animation.gif'
+    input_video_path = 'app/test_video.mp4'
+    output_gif_path = 'app/animation.gif'
 
     crop_region = ((190, 236), (80, 220))
     video_clip = VideoFileClip(input_video_path)
