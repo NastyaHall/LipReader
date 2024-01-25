@@ -35,7 +35,7 @@ if options:
         st.info('This is all the machine learning model sees when making a prediction')
         video, annotations = load_data(tf.convert_to_tensor(file_path))
         convert_to_gif()
-        st.image('animation.gif', width=500)
+        st.image('app/animation.gif', width=500)
 
         st.subheader('Result', divider='rainbow')
         with st.spinner('Wait for it...'):
