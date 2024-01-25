@@ -26,7 +26,8 @@ if options:
         # file_path = os.path.join('..', 'data', 's1', selected_video) 
         file_path = f'data/s1/{selected_video}'
         os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
-        video = open('test_video.mp4', 'rb')
+        # video = open('test_video.mp4', 'rb')
+        video = open('app/test_video.mp4', 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
 
