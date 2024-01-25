@@ -7,6 +7,7 @@ from neuralnetworkmodel import load_model
 import numpy as np 
 from PIL import Image
 from converttogif import convert_to_gif
+import subprocess
 
 st.set_page_config(layout='wide')
 
@@ -25,7 +26,8 @@ if options:
     with col1:
         # file_path = os.path.join('..', 'data', 's1', selected_video) 
         file_path = f'data/s1/{selected_video}'
-        os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
+        # os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
+        subprocess.run(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y', shell=True, check=True)
         # video = open('test_video.mp4', 'rb')
         video = open('app/test_video.mp4', 'rb')
         video_bytes = video.read()
