@@ -29,7 +29,7 @@ if options:
         # os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
         
         clip = VideoFileClip(file_path)
-        mp4_output_path = "test_video.mp4"
+        mp4_output_path = "app/test_video.mp4"
         clip.write_videofile(mp4_output_path, codec="libx264", audio_codec="aac")
 
         # video = open('test_video.mp4', 'rb')
