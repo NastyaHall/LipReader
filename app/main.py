@@ -7,7 +7,7 @@ from neuralnetworkmodel import load_model
 import numpy as np 
 from PIL import Image
 from converttogif import convert_to_gif
-import subprocess
+from moviepy.editor import VideoFileClip
 
 st.set_page_config(layout='wide')
 
@@ -27,7 +27,11 @@ if options:
         # file_path = os.path.join('..', 'data', 's1', selected_video) 
         file_path = f'data/s1/{selected_video}'
         # os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
-        subprocess.run(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y', shell=True, check=True)
+        
+        clip = VideoFileClip(file_path)
+        mp4_output_path = "test_video.mp4"
+        clip.write_videofile(mp4_output_path, codec="libx264", audio_codec="aac")
+
         # video = open('test_video.mp4', 'rb')
         video = open('app/test_video.mp4', 'rb')
         video_bytes = video.read()
